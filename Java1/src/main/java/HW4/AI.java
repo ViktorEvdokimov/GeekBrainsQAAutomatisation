@@ -1,3 +1,5 @@
+package HW4;
+
 class AI {
     int bestRow;
     int bestCol;

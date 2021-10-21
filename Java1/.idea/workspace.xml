@@ -84,11 +84,11 @@
       </method>
     </configuration>
     <configuration name="HomeWorkApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.java.HomeWorkApp" />
+      <option name="MAIN_CLASS_NAME" value="HW4.HomeWorkApp" />
       <module name="Java1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.java.*" />
+          <option name="PATTERN" value="HW4.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -97,7 +97,7 @@
       </method>
     </configuration>
     <configuration name="TicTacToe" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TicTacToe" />
+      <option name="MAIN_CLASS_NAME" value="HW4.TicTacToe" />
       <module name="Java1" />
       <method v="2">
         <option name="Make" enabled="true" />

@@ -1,3 +1,7 @@
+package HW4;
+
+import HW4.AI;
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
