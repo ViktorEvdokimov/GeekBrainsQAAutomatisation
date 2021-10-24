@@ -12,7 +12,8 @@ public abstract class Animal {
         this.ranDistance = ranDistance;
     }
 
-    public abstract void ran (int distance);
+
+    public abstract void run (int distance);
 
     public abstract void swim (int distance);
 

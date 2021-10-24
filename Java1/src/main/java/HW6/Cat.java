@@ -8,7 +8,7 @@ public class Cat extends Animal{
     }
 
     @Override
-    public void ran(int distance) {
+    public void run(int distance) {
         if(distance > ranDistance) System.out.println("Cat " + name + " can`t ran to " + distance + "m.");
         else System.out.println("Cat " + name + " ran " + distance + "m.");
     }
