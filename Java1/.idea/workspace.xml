@@ -23,9 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7cce428-a94a-4b76-a869-15b9a685528f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/HW7/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HW7/HW7.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HW7/Plate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HW8/TicTacToe/AI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HW8/TicTacToe/TicTacToe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HW8/TicTacToe/UI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,14 +63,12 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager" selected="Application.HW7">
-    <configuration name="HW2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HW2" />
-      <module name="Java1" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="HW8.TicTacToe" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.TicTacToe (1)">
     <configuration name="HW5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HW5.HW5" />
       <module name="Java1" />
@@ -110,20 +108,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TicTacToe" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HW4.TicTacToe" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HW8.Calculator.Main" />
       <module name="Java1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="HW8.Calculator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TicTacToe (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HW8.TicTacToe.TicTacToe" />
+      <module name="Java1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="HW8.TicTacToe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TicTacToe (1)" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.HW7" />
         <item itemvalue="Application.HW6" />
         <item itemvalue="Application.HW5" />
-        <item itemvalue="Application.TicTacToe" />
-        <item itemvalue="Application.HW2" />
       </list>
     </recent_temporary>
   </component>
@@ -142,6 +159,7 @@
       <workItem from="1634267248892" duration="57000" />
       <workItem from="1634303129389" duration="2496000" />
       <workItem from="1634834061854" duration="1671000" />
+      <workItem from="1635667734157" duration="7998000" />
     </task>
     <servers />
   </component>
@@ -161,14 +179,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1635079224977">
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1635669051535">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1635079224977" />
-    <state x="743" y="410" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1634834186841">
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1635669051535" />
+    <state x="743" y="410" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1635667755436">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="743" y="410" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1634834186841" />
+    <state x="743" y="410" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1635667755436" />
     <state x="433" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1634266107091">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -181,37 +199,37 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1634622658403" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1635080710280">
+    <state width="1876" height="280" key="GridCell.Tab.0.bottom" timestamp="1635678181558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1635080710280" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1635080710280">
+    <state width="1876" height="280" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1635678181558" />
+    <state width="1876" height="280" key="GridCell.Tab.0.center" timestamp="1635678181558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1635080710280" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1635080710280">
+    <state width="1876" height="280" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1635678181558" />
+    <state width="1876" height="280" key="GridCell.Tab.0.left" timestamp="1635678181557">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1635080710280" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1635080710280">
+    <state width="1876" height="280" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1635678181557" />
+    <state width="1876" height="280" key="GridCell.Tab.0.right" timestamp="1635678181558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1635080710280" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1634305391234">
+    <state width="1876" height="280" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1635678181558" />
+    <state width="1876" height="348" key="GridCell.Tab.1.bottom" timestamp="1635677653990">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1634305391234" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1634305391234">
+    <state width="1876" height="348" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1635677653990" />
+    <state width="1876" height="348" key="GridCell.Tab.1.center" timestamp="1635677653990">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1634305391234" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1634305391233">
+    <state width="1876" height="348" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1635677653990" />
+    <state width="1876" height="348" key="GridCell.Tab.1.left" timestamp="1635677653990">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1634305391233" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1634305391234">
+    <state width="1876" height="348" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1635677653990" />
+    <state width="1876" height="348" key="GridCell.Tab.1.right" timestamp="1635677653990">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1634305391234" />
+    <state width="1876" height="348" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1635677653990" />
   </component>
 </project>
