@@ -13,3 +13,10 @@ Java Core QA/out/production/Java Core QA/HW4/Main.class
 Java Core QA/out/production/Java Core QA/HW4/PhoneBook.class
 Java Core QA/out/production/Java Core QA/META-INF/Java Core QA.kotlin_module
 Java Core QA/out/production/Java Core QA/HW4/PhoneNumber.class
+*.class
+Java Core QA/.idea/compiler.xml
+Java Core QA/.idea/inspectionProfiles/Project_Default.xml
+Java Core QA/.idea/inspectionProfiles/Project_Default.xml
+Java Core QA/.idea/jarRepositories.xml
+Java Core QA/.idea/misc.xml
+*.iml
