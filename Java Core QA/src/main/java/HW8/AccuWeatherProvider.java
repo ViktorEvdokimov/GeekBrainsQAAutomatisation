@@ -1,15 +1,19 @@
 package HW8;
 
+import HW8.dto.WeatherResponse;
 import HW8.entity.WeatherData;
 import HW8.enums.Periods;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+
 import java.io.IOException;
+import java.util.List;
 import java.util.Iterator;
 
 public class AccuWeatherProvider implements WeatherProvider {
@@ -20,6 +24,7 @@ public class AccuWeatherProvider implements WeatherProvider {
     private static final String DAILY_CONDITIONS_ENDPOINT = "daily";
     private static final String API_VERSION = "v1";
     private static final String API_KEY = ApplicationGlobalState.getInstance().getApiKey();
+    private static String cityName;
 
     private final OkHttpClient client = new OkHttpClient();
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -43,7 +48,11 @@ public class AccuWeatherProvider implements WeatherProvider {
                 .build();
 
             Response response = client.newCall(request).execute();
-            printFormattedWeatherByDay(response.body().string());
+            String message = response.body().string();
+            printFormattedWeatherByDay(message);
+            System.out.println(message);
+            List<WeatherResponse> listResponses = objectMapper.readValue(message, new TypeReference<List<WeatherResponse>>(){});
+            return getDataFromResponse(listResponses);
         } else if(periods.equals(Periods.FIVE_DAYS)) {
             HttpUrl url = new HttpUrl.Builder()
                     .scheme("http")
@@ -67,11 +76,6 @@ public class AccuWeatherProvider implements WeatherProvider {
 //            System.out.println(response.body().string());
             printFormattedWeatherByFiveDays(response.body().string());
         }
-        return null;
-    }
-
-    @Override
-    public WeatherData getAllFromDb() throws IOException {
         return null;
     }
 
@@ -104,7 +108,7 @@ public class AccuWeatherProvider implements WeatherProvider {
         System.out.println("Произвожу поиск города " + selectedCity);
 
         if (objectMapper.readTree(jsonResponse).size() > 0) {
-            String cityName = objectMapper.readTree(jsonResponse).get(0).at("/LocalizedName").asText();
+            cityName = objectMapper.readTree(jsonResponse).get(0).at("/LocalizedName").asText();
             String countryName = objectMapper.readTree(jsonResponse).get(0).at("/Country/LocalizedName").asText();
             System.out.println("Найден город " + cityName + " в стране " + countryName);
         } else throw new IOException("Server returns 0 cities");
@@ -153,5 +157,15 @@ public class AccuWeatherProvider implements WeatherProvider {
         } catch (JsonProcessingException e) {
             throw new RuntimeException("SWW when parse message", e);
         }
+    }
+
+    private static WeatherData getDataFromResponse (List<WeatherResponse> weatherResponses){
+        WeatherResponse weatherResponse = weatherResponses.get(0);
+        WeatherData weatherData = new WeatherData();
+        weatherData.setTemperature(weatherResponse.getTemperature().getMetric().getValue());
+        weatherData.setText(weatherResponse.getWeatherText());
+        weatherData.setLocalDate(weatherResponse.getLocalObservationDateTime());
+        weatherData.setCity(cityName);
+        return weatherData;
     }
 }

@@ -18,6 +18,16 @@ public class WeatherData {
         this.temperature = temperature;
     }
 
+    @Override
+    public String toString() {
+        return "WeatherData{" +
+                "city='" + city + '\'' +
+                ", localDate='" + localDate + '\'' +
+                ", text='" + text + '\'' +
+                ", temperature=" + temperature +
+                "}\n";
+    }
+
     public String getCity() {
         return city;
     }
