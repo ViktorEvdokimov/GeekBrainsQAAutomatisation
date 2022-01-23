@@ -4,10 +4,8 @@ package HW8;
 import HW8.entity.WeatherData;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseRepositorySQLiteImpl implements DatabaseRepository {
@@ -26,12 +24,15 @@ public class DatabaseRepositorySQLiteImpl implements DatabaseRepository {
         "city TEXT NOT NULL,\n" +
         "date_time TEXT NOT NULL,\n" +
         "weather_text TEXT NOT NULL,\n" +
-        "temperature REAL NOT NULL,\n" +
+        "temperature REAL NOT NULL\n" +
         ");";
     String insertWeatherQuery = "INSERT INTO weather (city, date_time, weather_text, temperature) VALUES (?,?,?,?)";
 
+    String selectQuery = "SELECT city, date_time, weather_text, temperature FROM weather";
+
     public DatabaseRepositorySQLiteImpl() {
         filename = ApplicationGlobalState.getInstance().getDbFileName();
+        createTableIfNotExists();
     }
 
     private Connection getConnection() throws SQLException {
@@ -63,7 +64,24 @@ public class DatabaseRepositorySQLiteImpl implements DatabaseRepository {
     }
 
     @Override
-    public List<WeatherData> getAllSavedData() throws IOException {
-        throw new IOException("Not implemented exception");
+    public List<WeatherData> getAllSavedData() throws IOException, SQLException {
+        List<WeatherData> result = new ArrayList<>();
+        try (Connection connection = getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(selectQuery)) {
+            while (resultSet.next()) {
+                WeatherData weatherData = new WeatherData();
+                weatherData.setCity(resultSet.getString(1));
+                weatherData.setLocalDate(resultSet.getString(2));
+                weatherData.setText(resultSet.getString(3));
+                weatherData.setTemperature(resultSet.getDouble(4));
+                result.add(weatherData);
+            }
+            System.out.println(result.toString());
+            return result;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        throw new SQLException("Failure on reading weather object");
     }
 }
