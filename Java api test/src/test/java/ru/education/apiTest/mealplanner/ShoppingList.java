@@ -32,16 +32,20 @@ public class ShoppingList  extends BaseTest{
                 .queryParam("hash", hash)
                 .when()
                 .get(url);
-        List<Map> items = (List) response.getBody().jsonPath().getList("aisles.items").get(0);
+        List<List<Map>> itemLists = response.getBody().jsonPath().getList("aisles.items");
 
-        for (int i = 0; i < items.size(); i++) {
-            String id = items.get(i).get("id").toString();
-            given()
-                    .queryParam("apiKey", apiKey)
-                    .queryParam("hash", hash)
-                    .when()
-                    .delete(url + "/items/" + id);
+        for (int i = 0; i < itemLists.size(); i++) {
+            List<Map> items = itemLists.get(i);
+            for (int j = 0; j < items.size(); j++) {
+                String id = items.get(j).get("id").toString();
+                given()
+                        .queryParam("apiKey", apiKey)
+                        .queryParam("hash", hash)
+                        .when()
+                        .delete(url + "/items/" + id);
+            }
         }
+
     }
 
     @Test
