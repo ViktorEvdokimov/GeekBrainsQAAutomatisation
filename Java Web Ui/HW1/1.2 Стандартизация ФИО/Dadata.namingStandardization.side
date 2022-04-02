@@ -1,0 +1,130 @@
+{
+  "id": "1b30ab67-346a-4778-b0c8-e00168a52ba3",
+  "version": "2.0",
+  "name": "Dadata.namingStandardization",
+  "url": "https://dadata.ru",
+  "tests": [{
+    "id": "bbf6c6fa-97fd-41ee-aee4-4ad5203c96d2",
+    "name": "Ввод ФИО в нижнем регистре",
+    "commands": [{
+      "id": "1f980624-cce5-4b76-b235-3a1a41113ce6",
+      "comment": "",
+      "command": "open",
+      "target": "/clean/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "27412e4b-a135-4587-8187-d47a46fe659e",
+      "comment": "",
+      "command": "click",
+      "target": "//div[@class='api-tabs']/span[text()[contains(.,'ФИО')]]",
+      "targets": [
+        ["css=.api-tabs__item:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='demo']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//div/span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e29189f6-f6e4-4ffa-ad5e-59f8e1b66a53",
+      "comment": "",
+      "command": "click",
+      "target": "//input[@class='api-data-input__field']",
+      "targets": [
+        ["css=.api-data-input", "css:finder"],
+        ["xpath=//div[@id='demo']/div/div[2]/section", "xpath:idRelative"],
+        ["xpath=//div[2]/section", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f56b7ce2-4ee3-4bbd-afe8-1659164f48e7",
+      "comment": "",
+      "command": "type",
+      "target": "//input[@class='api-data-input__field']",
+      "targets": [
+        ["css=.api-data-input__field", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='demo']/div/div[2]/section/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "кузнецов пётр сергеевич"
+    }, {
+      "id": "f54580c4-7bee-4bb7-b943-2fc4976a1c81",
+      "comment": "",
+      "command": "click",
+      "target": "//section[@class='api-data-input']/button",
+      "targets": [
+        ["css=.btn:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='demo']/div/div[2]/section/button", "xpath:idRelative"],
+        ["xpath=//section/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Проверить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b9e5d8fc-f6de-4f51-a68c-9628273781ff",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "//section[@class='api-data-result']//span[text()[contains(.,'не требует ручной проверки')]]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1c8ddcf2-cfd0-4a98-928e-f8d7087ea156",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "//section[@class='api-data-result']//p[text()[contains(.,'Фамилия')]]/../div[text()[contains(.,'Кузнецов')]]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "78d9ab79-aee1-48db-b3ee-ec1be8e6ccc1",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "//section[@class='api-data-result']//p[text()[contains(.,'Отчество')]]/../div[text()[contains(.,'Сергеевич')]]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "76baccaf-ee2c-43e5-8b81-d2fb80459669",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "//section[@class='api-data-result']//p[text()[contains(.,'Пол')]]/../div[text()[contains(.,'мужской')]]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ee5d037d-9c03-4a97-b811-4b48c6590be2",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "//section[@class='api-data-result']//p[text()[contains(.,'Им. падеж (кто?):')]]/../div[text()[contains(.,'Кузнецов Пётр Сергеевич')]]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2548750b-7146-49eb-a22f-36dae53acbc0",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "//section[@class='api-data-result']//p[text()[contains(.,'Род. падеж (кого?):')]]/../div[text()[contains(.,'Кузнецова Петра Сергеевича')]]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5df79cb5-d36d-4936-b969-292d227dafba",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "//section[@class='api-data-result']//p[text()[contains(.,'Дат. падеж (кому?):')]]/../div[text()[contains(.,'Кузнецову Петру Сергеевичу')]]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0fff932b-c59b-446d-84d9-30f9545f4256",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "//section[@class='api-data-result']//p[text()[contains(.,'Твор. падеж (кем?):')]]/../div[text()[contains(.,'Кузнецовым Петром Сергеевичем')]]",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "67889bcd-47f6-4f8e-8651-c47924aadb57",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["bbf6c6fa-97fd-41ee-aee4-4ad5203c96d2"]
+  }],
+  "urls": ["https://dadata.ru/"],
+  "plugins": []
+}
