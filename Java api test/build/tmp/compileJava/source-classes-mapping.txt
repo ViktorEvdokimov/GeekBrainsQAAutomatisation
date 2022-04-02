@@ -1,0 +1,10 @@
+ru/education/apiTest/entities/mealplanner/GetShoppingListResponse.java
+ ru.education.apiTest.entities.mealplanner.GetShoppingListResponse
+ ru.education.apiTest.entities.mealplanner.GetShoppingListResponse$Aisle
+ ru.education.apiTest.entities.mealplanner.GetShoppingListResponse$Item
+ ru.education.apiTest.entities.mealplanner.GetShoppingListResponse$Measure
+ ru.education.apiTest.entities.mealplanner.GetShoppingListResponse$Measures
+ru/education/apiTest/entities/mealplanner/PostShoppingListRequest.java
+ ru.education.apiTest.entities.mealplanner.PostShoppingListRequest
+ru/education/apiTest/entities/mealplanner/DeleteShoppingListResponce.java
+ ru.education.apiTest.entities.mealplanner.DeleteShoppingListResponce
