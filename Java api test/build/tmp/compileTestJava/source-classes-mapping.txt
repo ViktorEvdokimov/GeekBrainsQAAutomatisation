@@ -1,8 +1,8 @@
-ru/education/apiTest/mealplanner/ShoppingList.java
- ru.education.apiTest.mealplanner.ShoppingList
+ru/education/apiTest/recipes/ComplexSearchTest.java
+ ru.education.apiTest.recipes.ComplexSearchTest
 ru/education/apiTest/recipes/Cuisine.java
  ru.education.apiTest.recipes.Cuisine
 ru/education/apiTest/BaseTest.java
  ru.education.apiTest.BaseTest
-ru/education/apiTest/recipes/ComplexSearchTest.java
- ru.education.apiTest.recipes.ComplexSearchTest
+ru/education/apiTest/mealplanner/ShoppingList.java
+ ru.education.apiTest.mealplanner.ShoppingList

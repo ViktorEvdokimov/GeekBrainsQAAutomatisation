@@ -1,15 +1,19 @@
 package ru.education.apiTest.mealplanner;
 
-import io.restassured.http.Header;
-import io.restassured.path.json.JsonPath;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import ru.education.apiTest.BaseTest;
+import ru.education.apiTest.entities.mealplanner.DeleteShoppingListResponce;
+import ru.education.apiTest.entities.mealplanner.GetShoppingListResponse;
+import ru.education.apiTest.entities.mealplanner.PostShoppingListRequest;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.*;
@@ -32,37 +36,41 @@ public class ShoppingList  extends BaseTest{
                 .queryParam("hash", hash)
                 .when()
                 .get(url);
-        List<List<Map>> itemLists = response.getBody().jsonPath().getList("aisles.items");
+        List<Long> ids = response.as(GetShoppingListResponse.class).aisles.stream()
+                .flatMap(it -> it.items.stream())
+                .map(it-> it.id)
+                .collect(Collectors.toList());
 
-        for (int i = 0; i < itemLists.size(); i++) {
-            List<Map> items = itemLists.get(i);
-            for (int j = 0; j < items.size(); j++) {
-                String id = items.get(j).get("id").toString();
+        for (int i = 0; i < ids.size(); i++) {
+                Long id = ids.get(i);
                 given()
                         .queryParam("apiKey", apiKey)
                         .queryParam("hash", hash)
                         .when()
                         .delete(url + "/items/" + id);
-            }
         }
 
     }
 
     @Test
-    void checkCauliflower(){
+    void checkCauliflower() throws JsonProcessingException {
+        PostShoppingListRequest postShoppingListRequest = new PostShoppingListRequest("1 goodbite chicken patty-2 pack", null, true);
+        ObjectMapper om = new ObjectMapper();
+        om.setDefaultPropertyInclusion(JsonInclude.Include.NON_NULL);
+        String jsonString = om.writeValueAsString(postShoppingListRequest);
         Response response = given()
                 .queryParam("apiKey", apiKey)
                 .queryParam("hash", hash)
                 .contentType("application/json")
-                .body("{\"item\":\"1 goodbite chicken patty-2 pack\",\"aisle\":\"Baking\",\"parse\": true}")
+                .body(jsonString)
                 .when()
                 .post(url + "/items");
 
         assertThat(response.getStatusCode(), is(200));
-        assertThat(response.getBody().jsonPath().get("name"), is ("goodbite chicken patty-2 pack"));
-        assertThat(response.getBody().jsonPath().get("cost"), is(506.15F));
+        assertThat(response.as(GetShoppingListResponse.Item.class).name, is("goodbite chicken patty-2 pack"));
+        assertThat(response.as(GetShoppingListResponse.Item.class).cost, is(506.15F));
 
-        String id = response.getBody().jsonPath().get("id").toString();
+        Long id = response.as(GetShoppingListResponse.Item.class).id;
 
         response = given()
                 .queryParam("apiKey", apiKey)
@@ -71,7 +79,10 @@ public class ShoppingList  extends BaseTest{
                 .get(url);
 
         assertThat(response.getStatusCode(), is(200));
-        assertThat(response.getBody().print(), containsString(id));
+        assertThat(response.getBody().as(GetShoppingListResponse.class).aisles.stream()
+                .flatMap(it -> it.items.stream())
+                .filter(it -> it.id.equals(id))
+                .count(), is(1L));
 
         response = given()
                 .queryParam("apiKey", apiKey)
@@ -80,7 +91,7 @@ public class ShoppingList  extends BaseTest{
                 .delete(url + "/items/" + id);
 
         assertThat(response.getStatusCode(), is(200));
-        assertThat(response.getBody().jsonPath().get("status"), is ("success"));
+        assertThat(response.as(DeleteShoppingListResponce.class).status, is ("success"));
 
         response = given()
                 .queryParam("apiKey", apiKey)
@@ -89,6 +100,9 @@ public class ShoppingList  extends BaseTest{
                 .get(url);
 
         assertThat(response.getStatusCode(), is(200));
-        assertThat(response.getBody().print(), !response.getBody().print().contains(id));
+        assertThat(response.getBody().as(GetShoppingListResponse.class).aisles.stream()
+                .flatMap(it -> it.items.stream())
+                .filter(it -> it.id.equals(id))
+                .count(), is(0L));
     }
 }
